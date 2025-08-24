@@ -4,6 +4,7 @@
   <a [class.active]="activeSection() === 'about'" href="#about">About</a>
   <a [class.active]="activeSection() === 'skills'" href="#skills">Skills</a>
   <a [class.active]="activeSection() === 'projects'" href="#projects">Projects</a>
+  <a [class.active]="activeSection() === 'exp'" href="#exp">experience</a>
   <a [class.active]="activeSection() === 'certs'" href="#certs">Certs</a>
   <a [class.active]="activeSection() === 'contact'" href="#contact">Contact</a>
 </nav>
@@ -71,6 +72,16 @@
       </div>
     </article>
   </div>
+</section>
+
+<section id="exp" class="section">
+  <h3>Experience</h3>
+  <ul class="exp">
+    <li *ngFor="let e of experience">
+      {{ e.title }}
+      <span class="exp-meta">{{ e.years }}</span>
+    </li>
+  </ul>
 </section>
 
 <section id="certs" class="section">

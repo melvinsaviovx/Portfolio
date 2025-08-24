@@ -117,14 +117,28 @@ export class App implements AfterViewInit {
   ];
 
   certifications = [
-    'Microsoft Certified: Azure Fundamentals (AZ‑900)',
-    'Microsoft Certified: Azure Data Fundamentals (DP‑900)'
+    'completed a certified angular course at besaant technology',
+    'Workshop on Python – Certificate of Excellence (UNIQ Technologies)'
   ];
+
+  experience = [
+    {
+      title:'Internship – Python & Data Science (Spiro Prime Tech Services)',
+      years:'2015 - 2020',
+    },
+    {
+      title:'Internship – Python with Machine Learning (UNIQ Technologies)',
+      years:'2018 - 2023',
+    },{
+      title:'Internship – Angular & .NET Developer (Evlai Infotech)',
+      years:'2022 - 2025',
+    }
+  ]
 
   contacts = {
     email: 'melvinsaviovx@gmail.com',
-    github: 'https://github.com/yourhandle',
-    linkedin: 'https://www.linkedin.com/in/yourhandle',
+    github: 'https://github.com/melvinsaviovx',
+    linkedin: 'https://www.linkedin.com/in/melvin-savio-v-x-94869b219',
   };
   // ==================================================================
 
