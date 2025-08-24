@@ -1,12 +1,147 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, AfterViewInit, Inject, PLATFORM_ID, signal } from '@angular/core';
+import { isPlatformBrowser, CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css']
 })
-export class App {
-  protected readonly title = signal('Portfolio');
+export class App implements AfterViewInit {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
+  // Signals for simple state (active section highlighting, modal toggles, etc.)
+  activeSection = signal<string>('home');
+  showResume = signal<boolean>(false);
+
+  // === Portfolio Data (edit this block) =============================
+  name = 'Melvin Savio V X';
+  role = 'Full‑Stack & Data Engineer';
+  location = 'India';
+  summary = `I design and ship end‑to‑end solutions across web, cloud, and data. Strong in Angular + .NET + SQL on the
+  engineering side; Python + ML/DL/NLP + Power BI on the data side; Azure for deployment and DevOps.`;
+
+  // Skills grouped by category
+  skills: { category: string; items: string[] }[] = [
+    { category: 'Languages', items: ['TypeScript', 'C#', 'Python'] },
+    { category: 'Frontend', items: ['Angular', 'RxJS', 'HTML5', 'CSS3', 'SCSS'] },
+    { category: 'Backend', items: ['ASP.NET Core', 'REST APIs', 'Entity Framework', 'Node.js (basics)'] },
+    { category: 'Databases', items: ['MS SQL Server', 'MySQL'] },
+    { category: 'Cloud & DevOps', items: ['Azure App Service', 'Azure Functions'] },
+    { category: 'Data & AI', items: ['Pandas', 'scikit‑learn', 'TensorFlow/Keras', 'NLP (spaCy)', 'Power BI'] },
+    { category: 'Tools', items: ['Git', 'GitHub', 'Postman', 'Jupyter', 'Excel (Advanced)'] },
+  ];
+
+  // 9 sample projects — replace with your real ones
+  projects: Array<{
+    title: string;
+    when: string;
+    tags: string[];
+    description: string;
+    impact: string;
+    links?: { demo?: string; repo?: string };
+  }> = [
+    {
+      title: 'Smart Inventory Dashboard',
+      when: '2025',
+      tags: ['Angular', 'ASP.NET Core', 'MSSQL', 'Azure App Service', 'Power BI'],
+      description:
+        'End‑to‑end inventory analytics: Angular SPA calls .NET APIs over EF Core; scheduled ETL to SQL; Power BI embedded for real‑time KPIs.',
+      impact: 'Reduced stock‑outs by 18% and improved planner visibility with 12 KPI tiles.'
+    },
+    {
+      title: 'Customer Churn Predictor',
+      when: '2024',
+      tags: ['Python', 'scikit‑learn', 'NLP', 'Azure Functions'],
+      description:
+        'Binary classifier + text sentiment features on support tickets; served via Azure Function HTTP trigger; consumed by Angular admin portal.',
+      impact: 'Flagged at‑risk users with 0.84 AUC; retention ops focused on top decile cohort.'
+    },
+    {
+      title: 'NLP Resume Screener',
+      when: '2024',
+      tags: ['Python', 'spaCy', 'Keras', 'Azure Blob'],
+      description:
+        'Named‑entity extraction for skills/experience; similarity scoring to job JD; exports shortlists to Excel & MySQL for audit.',
+      impact: 'Cut manual screening time by ~60% while improving consistency.'
+    },
+    {
+      title: 'Sales Forecasting Service',
+      when: '2023',
+      tags: ['Python', 'Prophet', 'FastAPI', 'Docker', 'Azure'],
+      description:
+        'Time‑series API wrapped with FastAPI; containerized; CI/CD to Azure Container Apps; consumed by Power BI via REST.',
+      impact: '±8% MAPE across 14 product families; automated weekly refresh.'
+    },
+    {
+      title: 'IoT Metrics Portal',
+      when: '2023',
+      tags: ['Angular', 'SignalR', 'Azure IoT Hub', 'MSSQL'],
+      description:
+        'Realtime device telemetry dashboard with role‑based access and anomaly alerts via SignalR and Functions.',
+      impact: 'Surfaced downtime anomalies 20 minutes earlier on average.'
+    },
+    {
+      title: 'Expense Manager',
+      when: '2022',
+      tags: ['Angular', 'ASP.NET Core', 'MySQL', 'JWT'],
+      description:
+        'Personal finance SPA with CRUD, budgets, and export to Excel; deployed on Azure App Service + MySQL Flexible Server.',
+      impact: 'Adopted by a small team; simplified monthly reconciliation.'
+    },
+    {
+      title: 'Support Ticket Classifier',
+      when: '2022',
+      tags: ['Python', 'NLP', 'sklearn', 'Flask', 'Power BI'],
+      description:
+        'Multi‑label text classifier; exposed via Flask; Power BI calls the API to enrich reports with categories/urgency.',
+      impact: 'Auto‑routed 35% tickets with improved SLA compliance.'
+    },
+    {
+      title: 'Marketing Attribution Model',
+      when: '2021',
+      tags: ['Python', 'Pandas', 'SQL', 'Power BI'],
+      description:
+        'Rule‑based + data‑driven attribution; SQL ETL, DAX measures, and BI visuals with drill‑through to campaigns.',
+      impact: 'Made spend re‑allocation decisions that lifted ROAS by ~12%.'
+    },
+    {
+      title: 'HR Insights Workbook',
+      when: '2021',
+      tags: ['Excel', 'Power Query', 'Power BI'],
+      description:
+        'Excel/Power BI combo for attrition and hiring pipeline tracking; parameterized refresh to SQL and CSV sources.',
+      impact: 'Self‑serve analytics for HR; reduced ad‑hoc asks by 40%.'
+    },
+  ];
+
+  certifications = [
+    'Microsoft Certified: Azure Fundamentals (AZ‑900)',
+    'Microsoft Certified: Azure Data Fundamentals (DP‑900)'
+  ];
+
+  contacts = {
+    email: 'melvinsaviovx@gmail.com',
+    github: 'https://github.com/yourhandle',
+    linkedin: 'https://www.linkedin.com/in/yourhandle',
+  };
+  // ==================================================================
+
+  ngAfterViewInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      // Active section highlight on scroll
+      const sections = Array.from(document.querySelectorAll('section[id]')) as HTMLElement[];
+      const onScroll = () => {
+        const y = window.scrollY + 120; 
+        for (const s of sections) {
+          const top = s.offsetTop;
+          const bottom = top + s.offsetHeight;
+          if (y >= top && y < bottom) { this.activeSection.set(s.id); break; }
+        }
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    }
+  }
 }
