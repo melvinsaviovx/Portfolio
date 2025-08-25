@@ -43,12 +43,12 @@ export class App implements AfterViewInit {
     links?: { demo?: string; repo?: string };
   }> = [
     {
-      title: 'Smart Inventory Dashboard',
+      title: 'Banking Management System',
       when: '2025',
-      tags: ['Angular', 'ASP.NET Core', 'MSSQL', 'Azure App Service', 'Power BI'],
+      tags: ['MYSQL'],
       description:
-        'End‑to‑end inventory analytics: Angular SPA calls .NET APIs over EF Core; scheduled ETL to SQL; Power BI embedded for real‑time KPIs.',
-      impact: 'Reduced stock‑outs by 18% and improved planner visibility with 12 KPI tiles.'
+        'Developed a SQL-based Banking Management System managing customers, accounts, loans, and transactions with triggers, procedures, and reports.',
+      impact: 'Improved data integrity, security, automation, and analytical reporting efficiency.'
     },
     {
       title: 'Customer Churn Predictor',
