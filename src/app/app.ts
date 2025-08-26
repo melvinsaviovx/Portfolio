@@ -43,12 +43,12 @@ export class App implements AfterViewInit {
     links?: { demo?: string; repo?: string };
   }> = [
     {
-      title: 'Smart Inventory Dashboard',
+      title: 'Banking Management System',
       when: '2025',
-      tags: ['Angular', 'ASP.NET Core', 'MSSQL', 'Azure App Service', 'Power BI'],
+      tags: ['MYSQL'],
       description:
-        'End‑to‑end inventory analytics: Angular SPA calls .NET APIs over EF Core; scheduled ETL to SQL; Power BI embedded for real‑time KPIs.',
-      impact: 'Reduced stock‑outs by 18% and improved planner visibility with 12 KPI tiles.'
+        'Developed a SQL-based Banking Management System managing customers, accounts, loans, and transactions with triggers, procedures, and reports.',
+      impact: 'Improved data integrity, security, automation, and analytical reporting efficiency.'
     },
     {
       title: 'Customer Churn Predictor',
@@ -117,14 +117,28 @@ export class App implements AfterViewInit {
   ];
 
   certifications = [
-    'Microsoft Certified: Azure Fundamentals (AZ‑900)',
-    'Microsoft Certified: Azure Data Fundamentals (DP‑900)'
+    'completed a certified angular course at besaant technology',
+    'Workshop on Python – Certificate of Excellence (UNIQ Technologies)'
   ];
+
+  experience = [
+    {
+      title:'Internship – Python & Data Science (Spiro Prime Tech Services)',
+      years:'2015 - 2020',
+    },
+    {
+      title:'Internship – Python with Machine Learning (UNIQ Technologies)',
+      years:'2018 - 2023',
+    },{
+      title:'Internship – Angular & .NET Developer (Evlai Infotech)',
+      years:'2022 - 2025',
+    }
+  ]
 
   contacts = {
     email: 'melvinsaviovx@gmail.com',
-    github: 'https://github.com/yourhandle',
-    linkedin: 'https://www.linkedin.com/in/yourhandle',
+    github: 'https://github.com/melvinsaviovx',
+    linkedin: 'https://www.linkedin.com/in/melvin-savio-v-x-94869b219',
   };
   // ==================================================================
 
