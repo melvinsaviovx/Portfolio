@@ -65,7 +65,7 @@
       <div class="tags">
         <span class="tag" *ngFor="let t of p.tags">{{ t }}</span>
       </div>
-      <p class="impact">Impact: {{ p.impact }}</p>
+      <p class="impact">Key Feature: {{ p.keyfeature }}</p>
       <div class="links" *ngIf="p.links">
         <a *ngIf="p.links?.demo" [href]="p.links?.demo" target="_blank" rel="noreferrer">Live</a>
         <a *ngIf="p.links?.repo" [href]="p.links?.repo" target="_blank" rel="noreferrer">Code</a>

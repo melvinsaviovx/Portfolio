@@ -39,7 +39,7 @@ export class App implements AfterViewInit {
     when: string;
     tags: string[];
     description: string;
-    impact: string;
+    keyfeature: string;
     links?: { demo?: string; repo?: string };
   }> = [
     {
@@ -48,15 +48,15 @@ export class App implements AfterViewInit {
       tags: ['MYSQL'],
       description:
         'Developed a SQL-based Banking Management System managing customers, accounts, loans, and transactions with triggers, procedures, and reports.',
-      impact: 'Improved data integrity, security, automation, and analytical reporting efficiency.'
+      keyfeature: 'Improved data integrity, security, automation, and analytical reporting efficiency.'
     },
     {
-      title: 'Customer Churn Predictor',
-      when: '2024',
-      tags: ['Python', 'scikit‑learn', 'NLP', 'Azure Functions'],
-      description:
-        'Binary classifier + text sentiment features on support tickets; served via Azure Function HTTP trigger; consumed by Angular admin portal.',
-      impact: 'Flagged at‑risk users with 0.84 AUC; retention ops focused on top decile cohort.'
+      title: 'Iris Flower Classification (KNN)',
+      when: '2025',
+      tags: ['Python 3', 'NumPy', 'Pandas', 'Scikit-learn', 'Matplotlib', 'Seaborn', 'Joblib'],
+      description: 
+         'Machine Learning project that classifies iris flowers into three species: Setosa, Versicolor, and Virginica, based on their sepal and petal measurements. The project demonstrates the full ML workflow — from loading data, exploring and visualizing it, training a model, evaluating performance, to saving the trained model for later use.',
+      keyfeature: 'End-to-end ML pipeline with K-Nearest Neighbors (KNN); data preprocessing, visualization, model evaluation with accuracy and confusion matrix; trained model and scaler saved for future predictions.'
     },
     {
       title: 'NLP Resume Screener',
@@ -64,7 +64,7 @@ export class App implements AfterViewInit {
       tags: ['Python', 'spaCy', 'Keras', 'Azure Blob'],
       description:
         'Named‑entity extraction for skills/experience; similarity scoring to job JD; exports shortlists to Excel & MySQL for audit.',
-      impact: 'Cut manual screening time by ~60% while improving consistency.'
+      keyfeature: 'Cut manual screening time by ~60% while improving consistency.'
     },
     {
       title: 'Sales Forecasting Service',
@@ -72,7 +72,7 @@ export class App implements AfterViewInit {
       tags: ['Python', 'Prophet', 'FastAPI', 'Docker', 'Azure'],
       description:
         'Time‑series API wrapped with FastAPI; containerized; CI/CD to Azure Container Apps; consumed by Power BI via REST.',
-      impact: '±8% MAPE across 14 product families; automated weekly refresh.'
+      keyfeature: '±8% MAPE across 14 product families; automated weekly refresh.'
     },
     {
       title: 'IoT Metrics Portal',
@@ -80,7 +80,7 @@ export class App implements AfterViewInit {
       tags: ['Angular', 'SignalR', 'Azure IoT Hub', 'MSSQL'],
       description:
         'Realtime device telemetry dashboard with role‑based access and anomaly alerts via SignalR and Functions.',
-      impact: 'Surfaced downtime anomalies 20 minutes earlier on average.'
+      keyfeature: 'Surfaced downtime anomalies 20 minutes earlier on average.'
     },
     {
       title: 'Expense Manager',
@@ -88,7 +88,7 @@ export class App implements AfterViewInit {
       tags: ['Angular', 'ASP.NET Core', 'MySQL', 'JWT'],
       description:
         'Personal finance SPA with CRUD, budgets, and export to Excel; deployed on Azure App Service + MySQL Flexible Server.',
-      impact: 'Adopted by a small team; simplified monthly reconciliation.'
+      keyfeature: 'Adopted by a small team; simplified monthly reconciliation.'
     },
     {
       title: 'Support Ticket Classifier',
@@ -96,7 +96,7 @@ export class App implements AfterViewInit {
       tags: ['Python', 'NLP', 'sklearn', 'Flask', 'Power BI'],
       description:
         'Multi‑label text classifier; exposed via Flask; Power BI calls the API to enrich reports with categories/urgency.',
-      impact: 'Auto‑routed 35% tickets with improved SLA compliance.'
+      keyfeature: 'Auto‑routed 35% tickets with improved SLA compliance.'
     },
     {
       title: 'Marketing Attribution Model',
@@ -104,7 +104,7 @@ export class App implements AfterViewInit {
       tags: ['Python', 'Pandas', 'SQL', 'Power BI'],
       description:
         'Rule‑based + data‑driven attribution; SQL ETL, DAX measures, and BI visuals with drill‑through to campaigns.',
-      impact: 'Made spend re‑allocation decisions that lifted ROAS by ~12%.'
+      keyfeature: 'Made spend re‑allocation decisions that lifted ROAS by ~12%.'
     },
     {
       title: 'HR Insights Workbook',
@@ -112,7 +112,7 @@ export class App implements AfterViewInit {
       tags: ['Excel', 'Power Query', 'Power BI'],
       description:
         'Excel/Power BI combo for attrition and hiring pipeline tracking; parameterized refresh to SQL and CSV sources.',
-      impact: 'Self‑serve analytics for HR; reduced ad‑hoc asks by 40%.'
+      keyfeature: 'Self‑serve analytics for HR; reduced ad‑hoc asks by 40%.'
     },
   ];
 
