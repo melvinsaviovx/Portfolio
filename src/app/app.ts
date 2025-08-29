@@ -53,7 +53,7 @@ export class App implements AfterViewInit {
     {
       title: 'Iris Flower Classification (KNN)',
       when: '2025',
-      tags: ['Python 3', 'NumPy, Pandas', 'Scikit-learn', 'Matplotlib, Seaborn', 'Joblib'],
+      tags: ['Python 3', 'NumPy', 'Pandas', 'Scikit-learn', 'Matplotlib', 'Seaborn', 'Joblib'],
       description: 
          'Machine Learning project that classifies iris flowers into three species: Setosa, Versicolor, and Virginica, based on their sepal and petal measurements. The project demonstrates the full ML workflow — from loading data, exploring and visualizing it, training a model, evaluating performance, to saving the trained model for later use.',
       keyfeature: 'End-to-end ML pipeline with K-Nearest Neighbors (KNN); data preprocessing, visualization, model evaluation with accuracy and confusion matrix; trained model and scaler saved for future predictions.'
