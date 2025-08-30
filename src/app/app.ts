@@ -33,7 +33,7 @@ export class App implements AfterViewInit {
     { category: 'Tools', items: ['Git', 'GitHub', 'Postman', 'Jupyter', 'Excel (Advanced)'] },
   ];
 
-  // 9 sample projects — replace with your real ones
+  // 20 line description 10 line impact
   projects: Array<{
     title: string;
     when: string;
@@ -41,22 +41,25 @@ export class App implements AfterViewInit {
     description: string;
     impact: string;
     links?: { demo?: string; repo?: string };
+    Details?: string;
   }> = [
     {
       title: 'Banking Management System',
-      when: '2025',
+      when: '2021',
       tags: ['MYSQL'],
       description:
         'Developed a SQL-based Banking Management System managing customers, accounts, loans, and transactions with triggers, procedures, and reports.',
-      impact: 'Improved data integrity, security, automation, and analytical reporting efficiency.'
+      impact: 'Improved data integrity, security, automation, and analytical reporting efficiency.',
+      Details: "Developed a comprehensive relational database for a banking system using MySQL. It manages Customers, Employees, Branches, Accounts, Transactions, Loans, and LoanPayments, ensuring secure and structured storage of all banking operations. Features include account management with multiple types, transaction tracking (deposits, withdrawals, transfers, payments), loan management with repayments, and audit trails through LoginHistory and FailedTransactionAttempts. Implemented foreign key constraints for data integrity and ENUM types for controlled values like account status, roles, and transaction types. The system supports efficient data retrieval, reporting, and scalability, suitable for real-world banking applications."
     },
     {
-      title: 'Customer Churn Predictor',
-      when: '2024',
-      tags: ['Python', 'scikit‑learn', 'NLP', 'Azure Functions'],
-      description:
-        'Binary classifier + text sentiment features on support tickets; served via Azure Function HTTP trigger; consumed by Angular admin portal.',
-      impact: 'Flagged at‑risk users with 0.84 AUC; retention ops focused on top decile cohort.'
+      title: 'Iris Flower Classification (KNN)',
+      when: '2021',
+      tags: ['Python 3', 'NumPy', 'Pandas', 'Scikit-learn', 'Matplotlib', 'Seaborn', 'Joblib'],
+      description: 
+        'ML project classifying iris flowers (Setosa, Versicolor, Virginica) using sepal and petal data, including training, evaluation, and model saving.',
+      impact: 'End-to-end KNN pipeline: preprocessing, visualization, evaluation, saving models.',
+      Details: "This project focuses on predicting the species of iris flowers—Setosa, Versicolor, or Virginica—based on sepal and petal measurements. I performed exploratory data analysis using Pandas and Seaborn to understand feature distributions and relationships, followed by data preprocessing to prepare the dataset for modeling. Multiple machine learning algorithms, including Logistic Regression, K-Nearest Neighbors, and Decision Tree, were trained and evaluated using Scikit-learn. Model performance was assessed with accuracy scores and confusion matrices. This project demonstrates a complete end-to-end ML workflow, including data handling, visualization, model training, evaluation, and practical application of predictive modeling."
     },
     {
       title: 'NLP Resume Screener',
@@ -64,7 +67,8 @@ export class App implements AfterViewInit {
       tags: ['Python', 'spaCy', 'Keras', 'Azure Blob'],
       description:
         'Named‑entity extraction for skills/experience; similarity scoring to job JD; exports shortlists to Excel & MySQL for audit.',
-      impact: 'Cut manual screening time by ~60% while improving consistency.'
+      impact: 'Cut manual screening time by ~60% while improving consistency.',
+      Details: ""
     },
     {
       title: 'Sales Forecasting Service',
@@ -72,7 +76,8 @@ export class App implements AfterViewInit {
       tags: ['Python', 'Prophet', 'FastAPI', 'Docker', 'Azure'],
       description:
         'Time‑series API wrapped with FastAPI; containerized; CI/CD to Azure Container Apps; consumed by Power BI via REST.',
-      impact: '±8% MAPE across 14 product families; automated weekly refresh.'
+      impact: '±8% MAPE across 14 product families; automated weekly refresh.',
+      Details: ""
     },
     {
       title: 'IoT Metrics Portal',
@@ -80,7 +85,8 @@ export class App implements AfterViewInit {
       tags: ['Angular', 'SignalR', 'Azure IoT Hub', 'MSSQL'],
       description:
         'Realtime device telemetry dashboard with role‑based access and anomaly alerts via SignalR and Functions.',
-      impact: 'Surfaced downtime anomalies 20 minutes earlier on average.'
+      impact: 'Surfaced downtime anomalies 20 minutes earlier on average.',
+      Details: ""
     },
     {
       title: 'Expense Manager',
@@ -88,7 +94,8 @@ export class App implements AfterViewInit {
       tags: ['Angular', 'ASP.NET Core', 'MySQL', 'JWT'],
       description:
         'Personal finance SPA with CRUD, budgets, and export to Excel; deployed on Azure App Service + MySQL Flexible Server.',
-      impact: 'Adopted by a small team; simplified monthly reconciliation.'
+      impact: 'Adopted by a small team; simplified monthly reconciliation.',
+      Details: ""
     },
     {
       title: 'Support Ticket Classifier',
@@ -96,7 +103,8 @@ export class App implements AfterViewInit {
       tags: ['Python', 'NLP', 'sklearn', 'Flask', 'Power BI'],
       description:
         'Multi‑label text classifier; exposed via Flask; Power BI calls the API to enrich reports with categories/urgency.',
-      impact: 'Auto‑routed 35% tickets with improved SLA compliance.'
+      impact: 'Auto‑routed 35% tickets with improved SLA compliance.',
+      Details: ""
     },
     {
       title: 'Marketing Attribution Model',
@@ -104,7 +112,8 @@ export class App implements AfterViewInit {
       tags: ['Python', 'Pandas', 'SQL', 'Power BI'],
       description:
         'Rule‑based + data‑driven attribution; SQL ETL, DAX measures, and BI visuals with drill‑through to campaigns.',
-      impact: 'Made spend re‑allocation decisions that lifted ROAS by ~12%.'
+      impact: 'Made spend re‑allocation decisions that lifted ROAS by ~12%.',
+      Details: ""
     },
     {
       title: 'HR Insights Workbook',
@@ -112,7 +121,8 @@ export class App implements AfterViewInit {
       tags: ['Excel', 'Power Query', 'Power BI'],
       description:
         'Excel/Power BI combo for attrition and hiring pipeline tracking; parameterized refresh to SQL and CSV sources.',
-      impact: 'Self‑serve analytics for HR; reduced ad‑hoc asks by 40%.'
+      impact: 'Self‑serve analytics for HR; reduced ad‑hoc asks by 40%.',
+      Details: ""
     },
   ];
 
@@ -158,4 +168,15 @@ export class App implements AfterViewInit {
       onScroll();
     }
   }
+
+selectedProject: any = null;
+
+openModal(project: any) {
+  this.selectedProject = project;
+}
+
+closeModal() {
+  this.selectedProject = null;
+}
+
 }
