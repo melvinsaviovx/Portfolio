@@ -16,7 +16,7 @@
       <h2>{{ role }}</h2>
       <p class="muted">{{ location }}</p>
       <div class="cta">
-        <a href="#projects" class="btn light">View Projects</a>
+        <a href="#projects" class="btn ghost">View Projects</a>
         <a href="#contact" class="btn ghost">Contact</a>
       </div>
     </div>
@@ -56,7 +56,7 @@
 <section id="projects" class="section">
   <h3>Projects (Selected)</h3>
   <div class="projects-grid">
-    <article class="project" *ngFor="let p of projects">
+    <article class="project" *ngFor="let p of projects" (click)="openModal(p)">
       <header>
         <h4>{{ p.title }}</h4>
         <span class="when">{{ p.when }}</span>
@@ -65,7 +65,7 @@
       <div class="tags">
         <span class="tag" *ngFor="let t of p.tags">{{ t }}</span>
       </div>
-      <p class="impact">Key Feature: {{ p.keyfeature }}</p>
+      <p class="impact">Impact: {{ p.impact }}</p>
       <div class="links" *ngIf="p.links">
         <a *ngIf="p.links?.demo" [href]="p.links?.demo" target="_blank" rel="noreferrer">Live</a>
         <a *ngIf="p.links?.repo" [href]="p.links?.repo" target="_blank" rel="noreferrer">Code</a>
@@ -103,3 +103,14 @@
 <footer class="footer">
   <p>© 2025 {{ name }} • All rights reserved.</p>
 </footer>
+
+<div class="modal" *ngIf="selectedProject">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <h2>{{ selectedProject.title }}</h2>
+    <p *ngIf="selectedProject.Details"><strong>Details:</strong> {{ selectedProject.Details }}</p>
+    <!-- <div class="tags">
+      <span class="tag" *ngFor="let t of selectedProject.tags">{{ t }}</span>
+    </div> -->
+  </div>
+</div>
